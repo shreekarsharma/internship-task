@@ -24,7 +24,7 @@ const AdminView = () => {
   const fetchApplicants = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/applicants`);
+      const response = await axios.get(`${API_BASE_URL}/applicants`);
       setApplicants(response.data);
     } catch (error) {
       console.error("Error fetching applicants:", error);
