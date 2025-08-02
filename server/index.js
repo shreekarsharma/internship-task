@@ -5,7 +5,16 @@ import dotenv from "dotenv";
 import applicantRoutes from "./routes/applicants.js";
 dotenv.config();
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" }));
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://your-frontend.onrender.com", 
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, 
+  })
+);
 app.use(express.json());
 app.use("/api/applicants", applicantRoutes);
 mongoose
