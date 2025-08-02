@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 const AdminView = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,7 +24,7 @@ const AdminView = () => {
   const fetchApplicants = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/applicants");
+      const response = await axios.get(`${API_BASE_URL}/api/applicants`);
       setApplicants(response.data);
     } catch (error) {
       console.error("Error fetching applicants:", error);

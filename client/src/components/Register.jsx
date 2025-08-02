@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { User, Mail, Phone, Briefcase, Send, CheckCircle } from 'lucide-react';
-
+import axiosInstance from "../api/axios";
 const Register = () => {
   const [form, setForm] = useState({
     name: '',
@@ -22,7 +22,7 @@ const Register = () => {
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:5000/api/applicants', form);
+      await axiosInstance.post('/applicants', form);
       toast.success("Registration successful! We'll be in touch soon.", {
         icon: <CheckCircle className="h-5 w-5" />,
       });
