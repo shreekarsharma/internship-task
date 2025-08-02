@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   "http://localhost:5173", 
-  "https://your-frontend.onrender.com", 
+  "https://mern-frontend-1l75.onrender.com/", 
 ];
 app.use(
   cors({
